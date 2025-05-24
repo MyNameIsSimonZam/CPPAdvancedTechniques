@@ -48,3 +48,32 @@ build/
 *.o
 *.exe
 *.dll
+
+# Скомпилированные исполняемые файлы (без расширения, Linux)
+app
+*.out
+
+# Объектные файлы (GCC, Clang)
+*.o
+
+# Отладочная информация
+*.dSYM/
+*.gch
+*.swp
+*.swo
+
+# Кэш и временные файлы
+*.tmp
+*.bak
+*~
+
+# Файлы компиляции CMake (если будешь использовать)
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Файлы конфигурации среды
+.zcompdump*
+.p10k.zsh
+
