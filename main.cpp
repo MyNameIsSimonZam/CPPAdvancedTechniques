@@ -4,6 +4,7 @@ void task1();
 void task2();
 void task3();
 void task4();
+void task5();
 
 int main() {
   int choice;
@@ -20,24 +21,28 @@ int main() {
     std::cin >> choice;
 
     switch (choice) {
-    case 1:
-      task1();
-      running = false;
-      break;
-    case 2:
-      task2();
-      running = false;
-      break;
-    case 3:
-      task3();
-      running = false;
-      break;
-    case 4:
-      task4();
-      running = false;
-      break;
-    default:
-      std::cout << "Invalid choice...\n";
+      case 1:
+        task1();
+        running = false;
+        break;
+      case 2:
+        task2();
+        running = false;
+        break;
+      case 3:
+        task3();
+        running = false;
+        break;
+      case 4:
+        task4();
+        running = false;
+        break;
+      case 5:
+        task4();
+        running = false;
+        break;
+      default:
+        std::cout << "Invalid choice...\n";
     }
   } while (running);
 
