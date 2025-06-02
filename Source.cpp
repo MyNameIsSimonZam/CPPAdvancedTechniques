@@ -16,7 +16,7 @@
 
 void task1() {
   std::ifstream words;
-  words.open("data/words.txt");
+  words.open("../data/words.txt");
 
   std::cout << find_word(words) << "\n";
 
@@ -50,7 +50,7 @@ is_open. Он вернёт true, если файл был благополучн
 */
 
 void task2() {
-  std::cout << "Enter the path (\"data/...\"): ";
+  std::cout << "Enter the path (\"../data/...\"): ";
   std::string path;
   std::cin >> path;
   file_viewer(path);
@@ -86,7 +86,7 @@ Margo Moorer 12350 24.2.2019
 
 void task3() {
   std::ifstream payroll;
-  payroll.open("data/payroll.txt");
+  payroll.open("../data/payroll.txt");
   if (!payroll.is_open()) {
     std::cerr << "File can't be opened";
     return;
@@ -128,7 +128,7 @@ PNG-изображением.
 */
 
 void task4() {
-  std::cout << "Enter the path (\"data/...\"): ";
+  std::cout << "Enter the path (\"../data/...\"): ";
   std::string path;
   std::cin >> path;
   if_png(path);

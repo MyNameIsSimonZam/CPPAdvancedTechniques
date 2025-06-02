@@ -3,7 +3,7 @@
 // функция возвращает количество упоминаний слова
 int find_word(std::ifstream& words) {
   if (!words.is_open()) {
-    std::cerr << "File can't be opened";
+    std::cerr << "File can't be opened ";
     return 0;
   }
 
