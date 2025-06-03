@@ -24,26 +24,28 @@
 */
 
 void task6() {
-  std::ofstream file("../data/payrollEmpty.txt", std::ios::app);
+  std::ofstream file("data/payrollEmpty.txt", std::ios::app);
   if (!file.is_open()) {
     std::cerr << "File can't be opened";
     return;
   }
-  
-  std::string name;
-  std::string date;
-  int sum;
-  std::cout << "Enter your first name and last name (Tom Hanks): ";
-  std::cin.ignore();
-  std::getline(std::cin, name);
-  std::cout << "Enter a date of issue (01/01/2026): ";
-  std::cin.ignore();
-  std::getline(std::cin, date);
-  std::cout << "Enter payment amount: ";
-    
-  file << "It's never too late for learn";
-  file.close();
 
+  std::string name;
+  while (true) {
+    std::string date;
+    int sum;
+    std::cout << "Enter your first name and last name (Tom Hanks): ";
+    std::getline(std::cin, name);
+    if (name == "stop") break;
+    std::cout << "Enter a date of issue (01.01.2026): ";
+    std::getline(std::cin, date);
+    if (date == "stop") break;
+    std::cout << "Enter payment amount: ";
+    std::cin >> sum;
+    std::cin.ignore();
+    file << name << " " << date << " " << sum << "\n";
+  }
+  file.close();
 }
 
 /*Задание 2. Реализация рисования случайных картин
@@ -65,7 +67,26 @@ void task6() {
 проверку Прислать ссылку на repl.it или файл .срр с решением.
 */
 
-void task7() {}
+void task7() {
+  int hight, weight;
+  std::cout << "Enter the hight and weight: ";
+  std::cin >> hight >> weight;
+  ++weight;
+  std::cout << "\n";
+
+  std::ofstream pic("data/pic.txt");
+  if (!pic.is_open()) {
+    std::cerr << "File can't be opened";
+    return;
+  }
+
+  for (int i = 1; i <= hight * weight; ++i) {
+    if (i % weight == 0)
+      pic << "\n";
+    else
+      pic << std::rand() % 2;
+  }
+}
 
 /*Задание 3. Реализация симуляции игры «Рыбалка»
 Что нужно сделать

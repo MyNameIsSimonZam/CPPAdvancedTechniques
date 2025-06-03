@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <filesystem>
+#include <cstdlib>
 
 int find_word(std::ifstream& words);
 void file_viewer(std::string& path);

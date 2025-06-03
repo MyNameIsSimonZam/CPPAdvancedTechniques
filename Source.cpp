@@ -16,7 +16,7 @@
 
 void task1() {
   std::ifstream words;
-  words.open("../data/words.txt");
+  words.open("data/words.txt");
 
   std::cout << find_word(words) << "\n";
 
@@ -86,7 +86,8 @@ Margo Moorer 12350 24.2.2019
 
 void task3() {
   std::ifstream payroll;
-  payroll.open("../data/payroll.txt");
+  payroll.open("data/payroll.txt");
+  std::cout << std::filesystem::current_path() << "\n";
   if (!payroll.is_open()) {
     std::cerr << "File can't be opened";
     return;
