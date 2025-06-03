@@ -99,3 +99,20 @@ void if_png(std::string& path) {
   else
     std::cout << "No\n";
 }
+
+// Write into the file the list whith vector
+void fill_the_file(std::ofstream& out_river) {
+  std::vector<std::string> fishes;
+  std::string word;
+
+  std::cout << "Fill the list (Enter stop when you'll finish)\n";
+  while (word != "stop") {
+    std::cin >> word;
+    if (word == "stop") break;
+    fishes.push_back(word);
+  }
+
+  for (auto x : fishes) {
+    out_river << x << "\n";
+  }
+}

@@ -63,15 +63,14 @@ void task6() {
 программы. Эта операция задаёт начальное зерно случайных чисел в зависимости от
 текущего времени. Для её корректной работы не забудьте также включить
 заголовочный файл <ctime>. Что оценивается Корректность работы программы по
-созданию случайных изображений заданного размера. Как отправить задание на
-проверку Прислать ссылку на repl.it или файл .срр с решением.
+созданию случайных изображений заданного размера.
 */
 
 void task7() {
-  int hight, weight;
-  std::cout << "Enter the hight and weight: ";
-  std::cin >> hight >> weight;
-  ++weight;
+  int height, width;
+  std::cout << "Enter the height and width: ";
+  std::cin >> height >> width;
+  ++width;
   std::cout << "\n";
 
   std::ofstream pic("data/pic.txt");
@@ -80,12 +79,14 @@ void task7() {
     return;
   }
 
-  for (int i = 1; i <= hight * weight; ++i) {
-    if (i % weight == 0)
+  std::srand(std::time(nullptr));
+  for (int i = 1; i <= height * width; ++i) {
+    if (i % width == 0)
       pic << "\n";
     else
       pic << std::rand() % 2;
   }
+  pic.close();
 }
 
 /*Задание 3. Реализация симуляции игры «Рыбалка»
@@ -118,7 +119,41 @@ carp
 
 */
 
-void task8() {}
+void task8() {
+  // std::ofstream out_river("data/river.txt");
+  // if (!out_river.is_open()) {
+  //   std::cerr << "File can't be opened";
+  //   return;
+  // }
+
+  // fill_the_file(out_river);
+
+  // in_file.clear();     // сброс ошибок
+  // in_file.seekg(0);    // вернуться в начало
+
+  std::string checkword;
+  std::cout << "Enter the check word\n";
+  std::cin >> checkword;
+
+  std::ifstream in_river("data/river.txt");
+  std::cout << std::filesystem::current_path()
+            << "\n";  // показывает, откуда запущена программа
+  if (!in_river.is_open()) {
+    std::cerr << "File can't be opened";
+    return;
+  }
+
+  std::ofstream out_river("data/basket.txt", std::ios::app);
+  if (!out_river.is_open()) {
+    std::cerr << "File can't be opened";
+    return;
+  }
+
+  std::string word;
+  while (in_river >> word) {
+    if (checkword == word) out_river << word << "\n";
+  }
+}
 
 /*Задание 4. Реализация симуляции банкомата
 Что нужно сделать
