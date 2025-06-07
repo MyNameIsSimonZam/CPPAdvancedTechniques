@@ -10,7 +10,9 @@ void task5();
 void task6();
 void task7();
 void task8();
-void task9();
+void task10();
+void task11();
+void task12();
 
 int main() {
   int choice;
@@ -28,6 +30,10 @@ int main() {
     std::cout << "6. Задание 1. Реализация записи в ведомость учёта\n";
     std::cout << "7. Задание 2. Реализация рисования случайных картин\n";
     std::cout << "8. Задание 3. Реализация симуляции игры «Рыбалка»\n";
+    std::cout << "Урок 3. Структуры данных\n";
+    std::cout << "10. Ведомость учёта\n";
+    std::cout << "11. Модель данных для посёлка\n";
+    std::cout << "12. Математический вектор\n";
 
     std::cin >> choice;
 
@@ -72,10 +78,19 @@ int main() {
         task8();
         running = false;
         break;
-      case 9:
-        task9();
+      case 10:
+        task10();
         running = false;
         break;
+      case 11:
+        task11();
+        running = false;
+        break;
+      case 12:
+        task12();
+        running = false;
+        break;
+
       default:
         std::cout << "Invalid choice...\n";
     }
