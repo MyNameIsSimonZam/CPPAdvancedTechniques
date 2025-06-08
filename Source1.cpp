@@ -34,7 +34,7 @@ void task6() {
   while (true) {
     std::string date;
     int sum;
-    std::cout << "Enter your first name and last name (Tom Hanks): ";
+    std::cout << "Enter your first name and last name (stop for exit): ";
     std::getline(std::cin, name);
     if (name == "stop") break;
     std::cout << "Enter a date of issue (01.01.2026): ";

@@ -27,7 +27,17 @@ if (command == "list")
 }
 */
 
-void task10() {}
+void task10() {
+  std::string command;
+  std::cin >> command;
+  if (command == "list") {
+    list_payroll();
+  }
+  if (command == "add") {
+    add_payroll();
+  }
+
+}
 
 /*2. Модель данных для посёлка
 Что нужно сделать

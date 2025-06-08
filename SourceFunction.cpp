@@ -116,3 +116,33 @@ void fill_the_file(std::ofstream& out_river) {
     out_river << x << "\n";
   }
 }
+
+void list_payroll() {
+  struct Payroll {
+    std::string fName_;
+    std::string sName_;
+    std::string date_;
+    size_t amount_;
+  };
+
+  std::ifstream payroll("data/payroll.txt");
+  std::cout << std::filesystem::current_path()
+            << "\n";  // выводит текущий рабочий каталог, из которого была
+                      // запущена программа
+  if (!payroll.is_open()) {
+    std::cerr << "File can't be opened";
+    return;
+  }
+
+  Payroll record;
+  std::vector<Payroll> vpayroll;
+  while (true) {
+    payroll >> record.fName_;
+    if (payroll.eof()) break;
+    payroll >> record.sName_;
+    payroll >> record.date_;
+    payroll >> record.amount_;
+
+    vpayroll.push_back(record);
+  }
+}
