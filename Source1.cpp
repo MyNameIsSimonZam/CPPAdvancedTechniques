@@ -23,7 +23,7 @@
 Программа должна дозаписывать данные в конец существующего списка.
 */
 
-void task6() {
+void task5() {
   std::ofstream file("data/payrollEmpty.txt", std::ios::app);
   if (!file.is_open()) {
     std::cerr << "File can't be opened";
@@ -66,7 +66,7 @@ void task6() {
 созданию случайных изображений заданного размера.
 */
 
-void task7() {
+void task6() {
   int height, width;
   std::cout << "Enter the height and width: ";
   std::cin >> height >> width;
@@ -119,7 +119,7 @@ carp
 
 */
 
-void task8() {
+void task7() {
   // std::ofstream out_river("data/river.txt");
   // if (!out_river.is_open()) {
   //   std::cerr << "File can't be opened";

@@ -10,6 +10,7 @@ void task5();
 void task6();
 void task7();
 void task8();
+void task9();
 void task10();
 void task11();
 void task12();
@@ -27,13 +28,17 @@ int main() {
     std::cout << "4. Задача 4\n";
     std::cout << "Enter your choice: ";
     std::cout << "Урок 2. Запись в файлы\n";
-    std::cout << "6. Задание 1. Реализация записи в ведомость учёта\n";
-    std::cout << "7. Задание 2. Реализация рисования случайных картин\n";
-    std::cout << "8. Задание 3. Реализация симуляции игры «Рыбалка»\n";
+    std::cout << "5. Задание 1. Реализация записи в ведомость учёта\n";
+    std::cout << "6. Задание 2. Реализация рисования случайных картин\n";
+    std::cout << "7. Задание 3. Реализация симуляции игры «Рыбалка»\n";
     std::cout << "Урок 3. Структуры данных\n";
-    std::cout << "10. Ведомость учёта\n";
-    std::cout << "11. Модель данных для посёлка\n";
-    std::cout << "12. Математический вектор\n";
+    std::cout << "8. Ведомость учёта\n";
+    std::cout << "9. Модель данных для посёлка\n";
+    std::cout << "Урок 4. Словари std::map\n";
+    std::cout << "10. Задание 1. Телефонный справочник\n";
+    std::cout << "11. Задание 2. Регистратура\n";
+    std::cout << "12. Задание 3. Анаграммы\n";
+    
 
     std::cin >> choice;
 
@@ -78,6 +83,10 @@ int main() {
         task8();
         running = false;
         break;
+      case 9:
+        task9();
+        running = false;
+        break;
       case 10:
         task10();
         running = false;
@@ -90,7 +99,6 @@ int main() {
         task12();
         running = false;
         break;
-
       default:
         std::cout << "Invalid choice...\n";
     }

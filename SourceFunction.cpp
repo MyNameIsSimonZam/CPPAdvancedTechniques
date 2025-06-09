@@ -117,7 +117,7 @@ void fill_the_file(std::ofstream& out_river) {
   }
 }
 
-void list_payroll() {
+void list_payroll(std::ifstream& payroll) {
   struct Payroll {
     std::string fName_;
     std::string sName_;
@@ -125,7 +125,6 @@ void list_payroll() {
     size_t amount_;
   };
 
-  std::ifstream payroll("data/payroll.txt");
   std::cout << std::filesystem::current_path()
             << "\n";  // выводит текущий рабочий каталог, из которого была
                       // запущена программа
@@ -142,7 +141,46 @@ void list_payroll() {
     payroll >> record.sName_;
     payroll >> record.date_;
     payroll >> record.amount_;
-
     vpayroll.push_back(record);
+  };
+
+  for (const auto& x : vpayroll) {
+    std::cout << x.fName_ << " " << x.sName_ << " " << x.date_ << " "
+              << x.amount_ << " " << "\n";
+  }
+}
+
+void add_payroll(std::ofstream& payroll) {
+  struct Payroll {
+    std::string fName_;
+    std::string sName_;
+    std::string date_;
+    size_t amount_;
+  };
+
+  std::cout << std::filesystem::current_path()
+            << "\n";  // выводит текущий рабочий каталог, из которого была
+                      // запущена программа
+  if (!payroll.is_open()) {
+    std::cerr << "File can't be opened";
+    return;
+  }
+
+  Payroll record;
+  while (true) {
+    std::cout << "Enter your first name(stop for exit): ";
+    std::getline(std::cin, record.fName_);
+    if (record.fName_ == "stop") break;
+    std::cout << "Enter your last name (stop for exit): ";
+    std::getline(std::cin, record.sName_);
+    if (record.sName_ == "stop") break;
+    std::cout << "Enter a date of issue (01.01.2026)(stop for exit): ";
+    std::getline(std::cin, record.date_);
+    if (record.date_ == "stop") break;
+    std::cout << "Enter payment amount: ";
+    std::cin >> record.amount_;
+    std::cin.ignore();
+
+    payroll << record.fName_ << " " << record.sName_ << " " << record.date_ << " " << record.amount_ << "\n";
   }
 }

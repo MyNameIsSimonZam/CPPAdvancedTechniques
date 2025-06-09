@@ -14,4 +14,5 @@ std::string person_with_max_salary(std::ifstream& payroll);
 void if_png(std::string& path);
 void fill_the_file(std::ofstream& in_river);
 void fillPayroll(std::ofstream& file);
-void list_payroll();
+void list_payroll(std::ifstream& payroll);
+void add_payroll(std::ofstream& payroll);

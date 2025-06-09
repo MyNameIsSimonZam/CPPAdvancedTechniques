@@ -6,5 +6,7 @@ add_executable(fisrst
     main.cpp 
     Source.cpp 
     Source1.cpp 
+    Source2.cpp 
+    Source3.cpp 
     SourceFunction.cpp
 )

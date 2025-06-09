@@ -27,16 +27,20 @@ if (command == "list")
 }
 */
 
-void task10() {
+void task8() {
+  std::ifstream ifPayroll("data/payrollForTen.txt", std::ios::app);
+  std::ofstream ofPayroll("data/payrollForTen.txt", std::ios::app);
+  std::cout << "Enter \"list\" or \"add\": ";
   std::string command;
   std::cin >> command;
+  std::cin.ignore();
+
   if (command == "list") {
-    list_payroll();
+    list_payroll(ifPayroll);  // протестировать после записи
   }
   if (command == "add") {
-    add_payroll();
+    add_payroll(ofPayroll);
   }
-
 }
 
 /*2. Модель данных для посёлка
@@ -82,7 +86,39 @@ children,
 каждого объекта одинаковый: — создать объект нужного типа, — ввести с клавиатуры
 значения, — добавить объект в вектор при помощи push_back.*/
 
-void task11() {}
+void task9() {
+  enum class BuildingType {
+    House,
+    Garage,
+    Shed,
+    Bath,
+  };
+  enum class RoomType {
+    Bedroom,
+    Kitchen,
+    Bathroom,
+    Childrenroom,
+    Livingroom,
+  };
+
+  struct Stead {
+    int number_;
+    struct Room {
+      int number_;
+      double roomArea_;
+    };
+    struct Floor {
+      double ceilingHeight_;
+      std::vector<Room> rooms_;
+    };
+    struct Building {
+      BuildingType type;
+      double buildingArea_;
+      bool hasStove_;
+      std::vector<Floor> floors_;
+    };
+  };
+}
 
 /*3. Математический вектор
 Что нужно сделать
@@ -104,4 +140,3 @@ void task11() {}
 Для выбора команды используйте конструкцию вида if (operation == "add"). Тут так
 и напрашиваются отдельные функции для каждой операции.*/
 
-void task12() {}
