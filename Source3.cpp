@@ -17,7 +17,25 @@ Ivanov — узнать телефон абонента по фамилии
 • Программа использует только заголовочные файлы <iostream>, <string>, <map> и,
 возможно, вектор.*/
 
-void task10() {}
+void task10() {
+  std::map<std::string, std::string> phoneBook;
+  std::map<std::string, std::vector<std::string>> surnameBook;
+  std::cout << "\"add\" for adding the record\n\"surname\" "
+               "for knoing surname by number\n\"number\" for knowing number "
+               "by surname\n\"stop\" for stopping\n";
+  std::string command;
+  std::cin.ignore();
+  while (command != "stop") {
+    std::cout << "Enter the command: ";
+    std::getline(std::cin, command);
+
+    if (command == "add") addRecord(phoneBook, surnameBook);
+    else if (command == "surname") printSurname(phoneBook);
+    else if (command == "number") printNumber(surnameBook);
+    else
+      std::cout << "Error... Unknown command... Reset\n";
+  }
+}
 
 /*Задание 2. Регистратура
 Что нужно сделать

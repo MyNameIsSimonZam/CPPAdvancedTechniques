@@ -181,6 +181,52 @@ void add_payroll(std::ofstream& payroll) {
     std::cin >> record.amount_;
     std::cin.ignore();
 
-    payroll << record.fName_ << " " << record.sName_ << " " << record.date_ << " " << record.amount_ << "\n";
+    payroll << record.fName_ << " " << record.sName_ << " " << record.date_
+            << " " << record.amount_ << "\n";
+  }
+}
+
+void addRecord(std::map<std::string, std::string>& phoneBook,
+               std::map<std::string, std::vector<std::string>>& surnameBook) {
+  std::string number, surname;
+  std::cout << "Enter the Number: ";
+  std::cin >> number;
+  std::cout << "Enter the Surname: ";
+  std::cin >> surname;
+  std::cin.ignore();
+  std::map<std::string, std::string>::iterator it = phoneBook.find(number);
+  if (it != phoneBook.end()) {
+    std::cout << "This number has been add already\n";
+    return;
+  }
+  std::pair<std::string, std::string> myPair = {number, surname};
+  phoneBook.insert(myPair);
+  surnameBook[surname].push_back(number);
+}
+
+void printSurname(std::map<std::string, std::string>& phoneBook) {
+  std::cout << "Enter a number: ";
+  std::string number;
+  std::getline(std::cin, number);
+  std::map<std::string, std::string>::iterator it = phoneBook.find(number);
+  if (it != phoneBook.end()) {
+    std::cout << "The surname is " << it->second << "\n";
+  } else {
+    std::cout << "Number not found\n";
+  }
+}
+
+void printNumber(std::map<std::string, std::vector<std::string>>& surnameBook) {
+  std::cout << "Enter a surname: ";
+  std::string surname;
+  std::getline(std::cin, surname);
+  std::map<std::string, std::vector<std::string>>::iterator it = surnameBook.find(surname);
+  if (it != surnameBook.end()) {
+    std::cout << "The numbers are: ";
+    for(auto number: it->second)
+    std::cout << number << " ";
+    std::cout << "\n";
+  } else {
+    std::cout << "Surname not found\n";
   }
 }

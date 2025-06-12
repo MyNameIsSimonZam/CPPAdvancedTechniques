@@ -1,10 +1,11 @@
 #pragma once
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <filesystem>
 #include <cstdlib>
 #include <ctime>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include <map>
+#include <string>
 #include <vector>
 
 int find_word(std::ifstream& words);
@@ -16,3 +17,7 @@ void fill_the_file(std::ofstream& in_river);
 void fillPayroll(std::ofstream& file);
 void list_payroll(std::ifstream& payroll);
 void add_payroll(std::ofstream& payroll);
+void addRecord(std::map<std::string, std::string>& phoneBook,
+               std::map<std::string, std::vector<std::string>>& surnameBook);
+void printSurname(std::map<std::string, std::string>& phoneBook);
+void printNumber(std::map<std::string, std::vector<std::string>>& surnameBook);
