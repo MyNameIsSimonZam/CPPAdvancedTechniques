@@ -29,9 +29,12 @@ void task10() {
     std::cout << "Enter the command: ";
     std::getline(std::cin, command);
 
-    if (command == "add") addRecord(phoneBook, surnameBook);
-    else if (command == "surname") printSurname(phoneBook);
-    else if (command == "number") printNumber(surnameBook);
+    if (command == "add")
+      addRecord(phoneBook, surnameBook);
+    else if (command == "surname")
+      printSurname(phoneBook);
+    else if (command == "number")
+      printNumber(surnameBook);
     else
       std::cout << "Error... Unknown command... Reset\n";
   }
@@ -63,7 +66,27 @@ void task10() {
 • Программа корректно выводит фамилии в лексикографическом порядке.
 • Программа использует только заголовочные файлы <iostream>, <string>, <map>.*/
 
-void task11() {}
+void task11() {
+  std::cin.ignore();
+  std::map<std::string, std::string> queueBook;
+  int iterator{97};  // for ordering keys // костыль, надо pair ключом делть
+  std::string meaning;
+  while (meaning != "stop") {
+    std::cout << "Enter the meaning (stop for exit): ";
+    std::getline(std::cin, meaning);
+    if (meaning != "next") {
+      addMapMeaning(queueBook, meaning, iterator);
+    } else {
+      if (queueBook.empty())
+        std::cout << "Queue is empty\n";
+      else {
+        std::map<std::string, std::string>::iterator it{queueBook.begin()};
+        std::cout << it->second << "\n";
+        queueBook.erase(it);
+      }
+    }
+  }
+}
 
 /*Задание 3. Анаграммы
 Что нужно сделать
@@ -82,4 +105,22 @@ void task11() {}
 Пришлите ссылку на repl.it или файл .срр с решением через форму для сдачи
 домашнего задания.*/
 
-void task12() {}
+void task12() {
+  std::cin.ignore();
+  std::map<char, int> firstMap;
+  std::map<char, int> secondMap;
+  std::string first;
+  std::string second;
+  std::getline(std::cin, first);
+  std::getline(std::cin, second);
+  for (char x : first) {
+    firstMap[x]++;
+  }
+  for (char x : second) {
+    secondMap[x]++;
+  }
+  if (firstMap == secondMap)
+    std::cout << "true\n";
+  else
+    std::cout << "false\n";
+}

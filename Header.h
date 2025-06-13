@@ -21,3 +21,4 @@ void addRecord(std::map<std::string, std::string>& phoneBook,
                std::map<std::string, std::vector<std::string>>& surnameBook);
 void printSurname(std::map<std::string, std::string>& phoneBook);
 void printNumber(std::map<std::string, std::vector<std::string>>& surnameBook);
+void addMapMeaning(std::map<std::string, std::string>& oMap, std::string& value, int& iterator);

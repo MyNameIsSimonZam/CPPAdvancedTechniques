@@ -220,13 +220,24 @@ void printNumber(std::map<std::string, std::vector<std::string>>& surnameBook) {
   std::cout << "Enter a surname: ";
   std::string surname;
   std::getline(std::cin, surname);
-  std::map<std::string, std::vector<std::string>>::iterator it = surnameBook.find(surname);
+  std::map<std::string, std::vector<std::string>>::iterator it =
+      surnameBook.find(surname);
   if (it != surnameBook.end()) {
     std::cout << "The numbers are: ";
-    for(auto number: it->second)
-    std::cout << number << " ";
+    for (auto number : it->second) std::cout << number << " ";
     std::cout << "\n";
   } else {
     std::cout << "Surname not found\n";
+  }
+}
+
+void addMapMeaning(std::map<std::string, std::string>& queueBook,
+                   std::string& meaning, int& iterator) {
+  if (queueBook.find(meaning) == queueBook.end())
+    queueBook.emplace(meaning, meaning);
+  else {
+    std::string tempValue = meaning + static_cast<char>(iterator);
+    queueBook.emplace(tempValue, meaning);
+    ++iterator;
   }
 }
